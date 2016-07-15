@@ -60,20 +60,20 @@ sudo rmdir archlinux-raspberry-pi-webserver-install-script-master
 # Create a home directory for your user
 
 # Install OpenSSH
-read CHOICE "Do you want to install OpenSSH?(y/n): "
-if [ "$CHOICE" == "y" ]; then
+read -r -p "Do you wish to install OpenSSH?(y/N): " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]] then
 	sudo pacman -S openssh
 
   # Set custom SSH port?
-  read CHOICE "Do you want to set a custom port?(y/n): "
-  if [ "$CHOICE" == "y" ]; then
+  read -r -p "Do you wish to set a custom SSH port?(y/N): " response
+  if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]] then
   	sudo nano /etc/ssh/sshd_config
   fi
 
   # Take note of MAC addr (after "link/ether")
-  read CHOICE "Do you want to take a note of the MAC address?(y/n): "
-  if [ "$CHOICE" == "y" ]; then
-  	ipaddr
+  read -r -p "Do you want to take a note of the MAC address?(y/n): " response
+  if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]] then
+  	ip addr
   fi
   read -p "Hit ENTER if you're ready to continue ..."
 
