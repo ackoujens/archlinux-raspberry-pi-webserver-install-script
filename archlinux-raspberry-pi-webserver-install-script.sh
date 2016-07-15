@@ -51,7 +51,7 @@
 # . archlinux-raspberry-pi-webserver-install-script.sh
 
 # See all commands
-set -x
+# set -x
 
 # Remove any garbage files
 sudo rm ArchLinuxARM-rpi-2-latest.tar.gz
@@ -73,12 +73,12 @@ then
   fi
 
   # Take note of MAC addr (after "link/ether")
-  read -r -p "Do you want to take a note of the MAC address?(y/n): " response
+  read -r -p "Do you want to take a note of your IP(inet) & MAC address?(link/ether)(y/n): " response
   if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
   then
   	ip addr
+    read -p "Hit ENTER if you're ready to continue ..."
   fi
-  read -p "Hit ENTER if you're ready to continue ..."
 
   echo "Running SSH service"
   sudo systemctl start sshd
@@ -91,4 +91,4 @@ fi
 # sudo rmd archlinux-raspberry-pi-webserver-install-script-master.sh
 
 # Disable seeing all commands
-set +x
+# set +x
