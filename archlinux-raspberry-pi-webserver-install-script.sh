@@ -45,10 +45,10 @@
 # sudo unzip master.zip
 
 # Move script file to main directory
-# sudo mv archlinux-raspberry-pi-webserver-install-script-master/archlinux-raspberry-pi-webserver-install-script-master.sh .
+# sudo mv archlinux-raspberry-pi-webserver-install-script-master/archlinux-raspberry-pi-webserver-install-script.sh .
 
 # EXECUTE SCRIPT
-# . archlinux-raspberry-pi-webserver-install-script-master.sh
+# . archlinux-raspberry-pi-webserver-install-script.sh
 
 # See all commands
 set -x
