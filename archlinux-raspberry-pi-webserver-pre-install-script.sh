@@ -13,27 +13,31 @@
 ## Before a connection is made to the package it is impossible IMO
 ## to include these steps into a script that can be downloaded.
 
+# See all commands
+set -x
+
 # Login as root
 # username: root
 # password: root
 
 # Enable DHCP for an easy wired internet connection
-# dhcpcd eth0
+dhcpcd eth0
 
 # TODO Is this step movable to an automated section?
 # Change the root password for safety
-# passwd root
-# <enter a new password>
+passwd root
 
 # TODO Is this step needed in here? If not it can be movable to an autmated section.
-# Install sudo for more permissive actions
-# pacman -S sudo
+# Install SUDO for more permissive actions
+pacman -S sudo
 
 # Create a new user
-# useradd <username> && passwd <username>
+echo "Creating a new user account."
+read -p 'Username: ' uservar
+useradd $uservar && passwd $uservar
 
 # Put new user in sudoers file
-# sudo adduser <username> sudo
+sudo adduser <username> sudo
 # OR
 # nano /etc/sudoers
 # scroll down to "User privilege specification" and add the line
@@ -41,25 +45,22 @@
 # ctrl+x to exit nano
 # Enter 'Y' to overwrite the sudoers file
 
-# Login into new user
+# Login into new user OR execute proceeding script AS another user
 # logout
 # username: <newuser>
 # password: <newuserpassword>
 
-# Install wget to retreive any files
-# sudo pacman -S wget
+# Install WGET to retreive any files
+sudo pacman -S wget
 
 # Get the installation zip file
-# sudo wget https://github.com/ackoujens/archlinux-raspberry-pi-webserver-install-script/archive/master.zip
+sudo wget https://github.com/ackoujens/archlinux-raspberry-pi-webserver-install-script/archive/master.zip
 
-# Install Unzip utility
-# sudo pacman -S Unzip
+# Install UNZIP utility
+sudo pacman -S Unzip
 
 # Unzip the zip file
-# sudo unzip master.zip
+sudo unzip master.zip
 
 # EXECUTE SCRIPT
-# . archlinux-raspberry-pi-webserver-install-script-master/archlinux-raspberry-pi-webserver-install-script.sh
-
-# See all commands
-# set -x
+. archlinux-raspberry-pi-webserver-install-script-master/archlinux-raspberry-pi-webserver-install-script.sh
