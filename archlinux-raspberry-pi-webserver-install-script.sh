@@ -1,57 +1,12 @@
 #!/bin/bash
-# Login as root
-# username: root
-# password: root
 
-# Change the root password
-# passwd root
-# <enter a new password>
-
-# Enable DHCP for an easy wired internet connection
-# dhcpcd eth0
-
-# Install GIT to start using GitHub shell scripts
-# pacman -S git-core
-
-# Install sudo for more permissive actions
-# pacman -S sudo
-
-# Create a new user
-# adduser
-# passwd <username>
-
-# Put new user in sudoers file
-# nano /etc/sudoers
-# scroll down to "User privilege specification" and add the line
-# <username> ALL=(ALL) ALL
-# ctrl+x to exit nano
-# Enter 'Y' to overwrite the sudoers file
-
-# Login into new user
-# logout
-# username: <newuser>
-# password: <newuserpassword>
-
-# Install wget to retreive any files
-# sudo pacman -S wget
-
-# Get the installation zip file
-# sudo wget https://github.com/ackoujens/archlinux-raspberry-pi-webserver-install-script/archive/master.zip
-
-# Install Unzip utility
-# sudo pacman -S Unzip
-
-# Unzip the zip file
-# sudo unzip master.zip
-
-# Move script file to main directory
-# sudo mv archlinux-raspberry-pi-webserver-install-script-master/archlinux-raspberry-pi-webserver-install-script.sh .
-
-# EXECUTE SCRIPT
-# . archlinux-raspberry-pi-webserver-install-script.sh
-
-# See all commands
-# set -x
+# ******************************************************* #
+#   archlinux-raspberry-pi-webserver-install-script.sh    #
+#                 written by Jens Ackou                   #
+#                                                         #
+#      easy install and setup of webserver packages       #
+#             tested on a 8Gb micro sd card               #
+# ******************************************************* #
 
 # Remove any garbage files
 sudo rm ArchLinuxARM-rpi-2-latest.tar.gz
@@ -87,8 +42,8 @@ then
   sudo systemctl enable sshd
 fi
 
-# Remove script after execution as it is not safe to run this script again on a clean install
-# sudo rmd archlinux-raspberry-pi-webserver-install-script-master.sh
+# Cleanup
+sudo rmd archlinux-raspberry-pi-webserver-install-script-master.sh
 
 # Disable seeing all commands
-# set +x
+set +x
