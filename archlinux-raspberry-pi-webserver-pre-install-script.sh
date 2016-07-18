@@ -20,6 +20,25 @@ set -x
 # username: root
 # password: root
 
+# Static IP configuration
+ip link set eth0 down
+echo "Description='Raspberry PI Static ethernet connection'
+Interface=eth0
+Connection=ethernet
+IP=static
+Address=('192.168.1.50/24')
+Gateway='192.168.1.1'
+DNS=('8.8.8.8' '8.8.4.4')
+SkipNoCarrier=yes" << /etc/netctl/home
+netctl start home
+# port forward your router to let port 80 through to your rpi webserver
+# also be sure your ISP doesn't block these permanently
+# I had to go to my client panel and enable an option that defined me as an experienced user so I could open up port 80
+# After this, test if your port is actually open with this tool => http://www.yougetsignal.com/tools/open-ports/
+# This tool will also automatically fetch your public IP
+# Also take note if you restart your modem to make your settings take effect, your public ip might already be changed
+
+
 # Enable DHCP for an easy wired internet connection
 dhcpcd eth0
 

@@ -66,6 +66,17 @@ then
   sudo systemctl enable httpd
 fi
 
+# Static IP or leave DHCP settings
+read -r -p "Do you wish to configure a static IP?(y/N): " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+  sudo cp /etc/netctl/examples/ethernet-static ../eth0
+  sudo nano /etc/netctl/eth0
+  read -p "After this step you will briefly lose connection if you are configuring your PI over SSH.
+          \n Press ENTER to continue ..."
+  sudo ip link set <interface> down
+  sudo netctl start eth0
+
 # Cleanup
 sudo rmd archlinux-raspberry-pi-webserver-install-script-master.sh
 
