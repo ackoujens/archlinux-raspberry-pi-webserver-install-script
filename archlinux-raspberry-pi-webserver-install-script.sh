@@ -12,7 +12,11 @@
 sudo rm ArchLinuxARM-rpi-2-latest.tar.gz
 sudo rmdir archlinux-raspberry-pi-webserver-install-script-master
 
-# Create a home directory for your user
+# Update database
+sudo pacman -Syy
+
+# Full system upgrade
+sudo pacman -Su
 
 # Install OpenSSH
 read -r -p "Do you wish to install OpenSSH?(y/N): " response
@@ -40,6 +44,26 @@ then
 
   echo "Enabling SSH on startup"
   sudo systemctl enable sshd
+fi
+
+# Install APACHE
+read -r -p "Do you wish to install APACHE?(y/N): " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+	sudo pacman -S apache
+
+  # Set custom APACHE port?
+  read -r -p "Do you wish to set a custom APACHE port?(y/N): " response
+  if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+  then
+  	sudo nano /etc/httpd/conf/httpd.conf
+  fi
+
+  echo "Running APACHE service"
+  sudo systemctl start httpd
+
+  echo "Enabling APACHE on startup"
+  sudo systemctl enable httpd
 fi
 
 # Cleanup
