@@ -38,6 +38,7 @@ netctl start home
 # This tool will also automatically fetch your public IP
 # Also take note if you restart your modem to make your settings take effect, your public ip might already be changed
 
+# DDNS is a built-in feature in my modem and thus I don't need to bother my RPI with this task
 
 # Enable DHCP for an easy wired internet connection
 dhcpcd eth0
