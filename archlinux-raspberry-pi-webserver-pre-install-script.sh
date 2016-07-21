@@ -71,16 +71,21 @@ sudo adduser <username> sudo
 # password: <newuserpassword>
 
 # Install WGET to retreive any files
-sudo pacman -S wget
+# sudo pacman -S wget
+# This can be achieved with curl + raw git file hosting
 
 # Get the installation zip file
-sudo wget https://github.com/ackoujens/archlinux-raspberry-pi-webserver-install-script/archive/master.zip
+# sudo wget https://github.com/ackoujens/archlinux-raspberry-pi-webserver-install-script/archive/master.zip
+# same as the above
 
 # Install UNZIP utility
-sudo pacman -S Unzip
+# sudo pacman -S Unzip
+# same as the above
 
 # Unzip the zip file
-sudo unzip master.zip
+# sudo unzip master.zip
+# same as the above
 
 # EXECUTE SCRIPT
-. archlinux-raspberry-pi-webserver-install-script-master/archlinux-raspberry-pi-webserver-install-script.sh
+# . archlinux-raspberry-pi-webserver-install-script-master/archlinux-raspberry-pi-webserver-install-script.sh
+# same as the above

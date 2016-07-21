@@ -9,7 +9,7 @@
 # ******************************************************* #
 
 # Remove any garbage files
-sudo rm ArchLinuxARM-rpi-2-latest.tar.gz
+# sudo rm ArchLinuxARM-rpi-2-latest.tar.gz - should be removed in RPI2 Arch install
 sudo rmdir archlinux-raspberry-pi-webserver-install-script-master
 
 # Update database
@@ -18,7 +18,7 @@ sudo pacman -Syy
 # Full system upgrade
 sudo pacman -Su
 
-# Install OpenSSH
+# Install OpenSSH - should be included in Arch2 RPI install
 read -r -p "Do you wish to install OpenSSH?(y/N): " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
